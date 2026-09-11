@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="200" fill="#12121a"/>
+  <rect x="1" y="1" width="398" height="398" rx="199" stroke="#64ffda" stroke-opacity="0.15" stroke-width="2"/>
+  <!-- Geometric abstract portrait placeholder -->
+  <circle cx="200" cy="160" r="60" fill="#1a1a2e" stroke="#27272a" stroke-width="1.5"/>
+  <path d="M140 300 C140 250 160 220 200 220 C240 220 260 250 260 300" fill="#1a1a2e" stroke="#27272a" stroke-width="1.5"/>
+  <!-- Subtle grid pattern -->
+  <line x1="170" y1="140" x2="170" y2="180" stroke="#64ffda" stroke-opacity="0.1" stroke-width="0.5"/>
+  <line x1="200" y1="130" x2="200" y2="190" stroke="#64ffda" stroke-opacity="0.1" stroke-width="0.5"/>
+  <line x1="230" y1="140" x2="230" y2="180" stroke="#64ffda" stroke-opacity="0.1" stroke-width="0.5"/>
+  <line x1="160" y1="155" x2="240" y2="155" stroke="#64ffda" stroke-opacity="0.1" stroke-width="0.5"/>
+  <line x1="160" y1="170" x2="240" y2="170" stroke="#64ffda" stroke-opacity="0.1" stroke-width="0.5"/>
+  <!-- Corner accents -->
+  <path d="M40 60 L40 40 L60 40" stroke="#64ffda" stroke-opacity="0.2" stroke-width="1.5" fill="none"/>
+  <path d="M340 60 L340 40 L360 40" stroke="#64ffda" stroke-opacity="0.2" stroke-width="1.5" fill="none" transform="rotate(90 350 50)"/>
+  <path d="M40 340 L40 360 L60 360" stroke="#64ffda" stroke-opacity="0.2" stroke-width="1.5" fill="none"/>
+  <path d="M340 340 L340 360 L360 360" stroke="#64ffda" stroke-opacity="0.15" stroke-width="1.5" fill="none"/>
+</svg>
