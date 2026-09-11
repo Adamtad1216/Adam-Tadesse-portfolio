@@ -91,6 +91,7 @@ export interface SiteConfig {
   location: string;
   email: string;
   profileImage: string;
+  logo?: string;
   cvPath: string | null;
   education: Education;
   socials: SocialLink[];

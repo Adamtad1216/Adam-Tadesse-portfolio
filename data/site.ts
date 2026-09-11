@@ -5,7 +5,8 @@ export const siteConfig: SiteConfig = {
   title: 'Full-Stack Developer',
   location: 'Addis Ababa, Ethiopia',
   email: 'adamtadesse9@gmail.com',
-  profileImage: '/images/profile-placeholder.svg',
+  profileImage: '/images/adam.jpg',
+  logo: '/images/logo.png',
   cvPath: null, // Add '/Adam-Tadesse-CV.pdf' when ready
   education: {
     institution: 'Arba Minch University',
@@ -47,5 +48,6 @@ export const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Lab', href: '#lab' },
   { label: 'Contact', href: '#contact' },
 ] as const;
