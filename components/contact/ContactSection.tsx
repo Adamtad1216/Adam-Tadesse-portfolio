@@ -33,11 +33,12 @@ const projectTypes = [
 ];
 
 const budgetRanges = [
-  'Under $1,000',
-  '$1,000 - $5,000',
-  '$5,000 - $15,000',
-  '$15,000+',
-  'Not sure yet',
+  'Below 15,000 Birr',
+  '15,000 - 40,000 Birr',
+  '40,000 - 100,000 Birr',
+  '100,000 - 250,000 Birr',
+  '250,000+ Birr',
+  'Not decided yet',
 ];
 
 export function ContactSection() {
@@ -55,24 +56,39 @@ export function ContactSection() {
   const onSubmit = async (data: ContactFormData) => {
     setSubmitStatus('loading');
 
-    // Simulate form submission — replace with actual email service
-    // e.g., Resend, SendGrid, EmailJS, or a Next.js API route
     try {
-      // For now, log the data and show success
-      console.log('Contact form submission:', data);
+      const response = await fetch('https://formsubmit.co/ajax/adamtadesse9@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          _replyto: data.email,
+          _subject: `New Project Inquiry from ${data.name} — Portfolio`,
+          'Project Type': data.projectType,
+          'Budget Range': data.budget || 'Not decided yet',
+          'Project Description': data.description,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
 
-      // Simulate network delay
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const result = await response.json();
 
-      // In production, send to:
-      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) });
-
-      setSubmitStatus('success');
-      reset();
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    } catch {
+      if (response.ok && (result.success === 'true' || result.success === true)) {
+        setSubmitStatus('success');
+        reset();
+        setTimeout(() => setSubmitStatus('idle'), 6000);
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      console.error('Contact form submission error:', err);
       setSubmitStatus('error');
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      setTimeout(() => setSubmitStatus('idle'), 6000);
     }
   };
 
