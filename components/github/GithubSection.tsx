@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { GitBranch, Terminal, ExternalLink, Code2 } from 'lucide-react';
+import { GitBranch, Terminal, ExternalLink, Code2, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/Icons';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -261,25 +261,28 @@ export function GithubSection() {
           ))}
         </div>
 
-        {/* Terminal CTA */}
+        {/* Clone Tech Startup Project Readiness Banner */}
         <motion.div
           variants={fadeUp}
-          className="mt-12 p-6 rounded-2xl border border-border-subtle bg-elevated flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          className="mt-12 p-6 lg:p-8 rounded-2xl border border-accent/20 bg-gradient-to-r from-accent/[0.06] via-surface to-accent/[0.02] flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-lg"
         >
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-success animate-pulse" />
-            <span className="font-mono text-xs text-text-secondary">
-              git clone https://github.com/Adamtad1216/&lt;repo&gt;
-            </span>
+          <div className="flex items-start sm:items-center gap-4">
+            <div className="w-3.5 h-3.5 rounded-full bg-accent animate-pulse shrink-0 mt-1 sm:mt-0" />
+            <div>
+              <h4 className="font-display font-bold text-text-primary text-base sm:text-lg">
+                Clone Technologies — Open for Client Projects
+              </h4>
+              <p className="text-text-secondary text-sm mt-1 max-w-2xl leading-relaxed">
+                We as Clone Tech startup are ready to take on any full-stack software projects — from enterprise-grade platforms, APIs, and databases to modern web and mobile applications.
+              </p>
+            </div>
           </div>
           <a
-            href={siteConfig.socials[0].url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-mono text-accent hover:underline"
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent text-text-inverse text-sm font-medium hover:opacity-90 transition-opacity shrink-0 font-mono"
           >
-            Explore all repositories on GitHub
-            <ExternalLink size={12} />
+            Start a project with us
+            <ArrowUpRight size={15} />
           </a>
         </motion.div>
       </motion.div>

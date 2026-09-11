@@ -88,7 +88,8 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`dark ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      data-theme="dark"
     >
       <head>
         <script
@@ -97,8 +98,7 @@ export default function RootLayout({
               (function() {
                 try {
                   var stored = localStorage.getItem('theme');
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  var theme = stored || (prefersDark ? 'dark' : 'light');
+                  var theme = stored === 'light' ? 'light' : 'dark';
                   document.documentElement.classList.remove('light', 'dark');
                   document.documentElement.classList.add(theme);
                   document.documentElement.setAttribute('data-theme', theme);

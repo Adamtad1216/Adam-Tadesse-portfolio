@@ -9,6 +9,7 @@ import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { getFeaturedProjects, getFlagshipProject } from '@/data/projects';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function FlagshipProject({ project }: { project: Project }) {
   return (
@@ -98,20 +99,32 @@ function FlagshipProject({ project }: { project: Project }) {
               </div>
             </div>
 
-            {/* Right — Visual */}
-            <div className="relative rounded-xl overflow-hidden bg-elevated border border-border-subtle aspect-video lg:aspect-auto flex items-center justify-center">
-              <div className="absolute inset-0 grid-pattern opacity-20" />
-              <div className="relative text-center p-8 space-y-4">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 border border-accent/20">
-                  <span className="font-display text-2xl font-bold text-accent">US</span>
+            {/* Right — Visual / Snapshot */}
+            <div className="relative rounded-xl overflow-hidden bg-elevated border border-border-subtle aspect-video lg:aspect-auto min-h-[280px] lg:min-h-[340px] flex items-center justify-center">
+              {project.image ? (
+                <div className="relative w-full h-full min-h-[280px]">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} snapshot`}
+                    fill
+                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-base/80 via-transparent to-transparent opacity-60" />
                 </div>
-                <p className="font-display text-lg font-medium text-text-primary">
-                  Smart City Dashboard
-                </p>
-                <p className="text-text-muted text-sm">
-                  AI-Powered • Geospatial • Full-Stack
-                </p>
-              </div>
+              ) : (
+                <>
+                  <div className="absolute inset-0 grid-pattern opacity-20" />
+                  <div className="relative text-center p-8 space-y-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 border border-accent/20">
+                      <span className="font-display text-2xl font-bold text-accent">US</span>
+                    </div>
+                    <p className="font-display text-lg font-medium text-text-primary">
+                      Smart City Dashboard
+                    </p>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -134,22 +147,37 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         />
 
         <div className="relative z-10 pointer-events-none flex flex-col h-full justify-between">
-          {/* Visual header */}
-          <div className="relative h-48 bg-elevated flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 dot-pattern opacity-20" />
-            <div className="relative text-center space-y-2">
-              <span
-                className="font-display text-4xl font-bold opacity-10"
-                aria-hidden="true"
-              >
-                0{index + 1}
-              </span>
-              {project.conceptHeadline && (
-                <p className="text-text-muted text-sm italic px-6">
-                  &ldquo;{project.conceptHeadline}&rdquo;
-                </p>
-              )}
-            </div>
+          {/* Visual header / Snapshot */}
+          <div className="relative h-52 bg-elevated flex items-center justify-center overflow-hidden border-b border-border-subtle">
+            {project.image ? (
+              <div className="relative w-full h-full">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} snapshot`}
+                  fill
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
+              </div>
+            ) : (
+              <>
+                <div className="absolute inset-0 dot-pattern opacity-20" />
+                <div className="relative text-center space-y-2">
+                  <span
+                    className="font-display text-4xl font-bold opacity-10"
+                    aria-hidden="true"
+                  >
+                    0{index + 1}
+                  </span>
+                  {project.conceptHeadline && (
+                    <p className="text-text-muted text-sm italic px-6">
+                      &ldquo;{project.conceptHeadline}&rdquo;
+                    </p>
+                  )}
+                </div>
+              </>
+            )}
           </div>
 
           {/* Content */}

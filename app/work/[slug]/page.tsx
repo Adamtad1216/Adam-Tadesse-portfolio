@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   ArrowLeft,
@@ -138,17 +139,29 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </div>
         </header>
 
-        {/* Visual placeholder */}
-        <div className="relative rounded-2xl overflow-hidden border border-border bg-elevated mb-16 aspect-video flex items-center justify-center">
-          <div className="absolute inset-0 grid-pattern opacity-20" />
-          <div className="relative text-center space-y-3">
-            <p className="font-display text-2xl font-bold text-text-primary/20">
-              {project.title}
-            </p>
-            <p className="text-text-muted text-sm font-mono">
-              Project screenshot placeholder
-            </p>
-          </div>
+        {/* Project Snapshot Showcase */}
+        <div className="relative rounded-2xl overflow-hidden border border-border bg-surface mb-16 aspect-video shadow-2xl">
+          {project.image ? (
+            <div className="relative w-full h-full">
+              <Image
+                src={project.image}
+                alt={`${project.title} snapshot`}
+                fill
+                className="object-cover object-top"
+                priority
+                sizes="(max-width: 1024px) 100vw, 1024px"
+              />
+            </div>
+          ) : (
+            <div className="relative w-full h-full flex items-center justify-center bg-elevated">
+              <div className="absolute inset-0 grid-pattern opacity-20" />
+              <div className="relative text-center space-y-3">
+                <p className="font-display text-2xl font-bold text-text-primary/20">
+                  {project.title}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Stack */}

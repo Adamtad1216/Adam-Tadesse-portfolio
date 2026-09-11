@@ -13,6 +13,7 @@ export const projects: Project[] = [
     status: 'live',
     featured: true,
     flagship: true,
+    image: '/images/urban-sight.png',
     github: 'https://github.com/Adamtad1216/UrbanSight',
     live: 'https://urban-sight.vercel.app/',
     year: '2024',
@@ -65,6 +66,7 @@ export const projects: Project[] = [
     stack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Text-to-Speech'],
     status: 'completed',
     featured: true,
+    image: '/images/accessible-exam.png',
     github:
       'https://github.com/Adamtad1216/Ethiopian-National-Accessible-Exam-System',
     year: '2024',
@@ -111,6 +113,7 @@ export const projects: Project[] = [
     stack: ['HTML', 'CSS', 'JavaScript', 'Animation'],
     status: 'completed',
     featured: true,
+    image: '/images/galaxy-travel.png',
     github: 'https://github.com/AdamTd/Adam-Galaxy-Travel',
     year: '2023',
     problem:
@@ -147,6 +150,7 @@ export const projects: Project[] = [
     stack: [], // Technologies to be specified later
     status: 'completed',
     featured: true,
+    image: '/images/wholesale-erp.png',
     // github and live URLs to be added when available
     year: '2024',
     problem:

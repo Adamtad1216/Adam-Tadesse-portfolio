@@ -65,8 +65,16 @@ export function StartupSection() {
             <p className="text-text-muted text-sm leading-relaxed">
               Our flagship focus is the Wholesale Distribution System ERP — an enterprise-grade platform designed to unify fragmented supply chain, inventory, and order fulfillment workflows into a cohesive digital backbone.
             </p>
+            <div className="p-4 rounded-xl border border-accent/20 bg-accent/[0.04]">
+              <p className="text-xs font-mono text-accent uppercase tracking-wider mb-1 font-semibold">
+                Available for Software Engineering Projects
+              </p>
+              <p className="text-text-secondary text-sm">
+                We as Clone Tech startup are ready to take on any full-stack software projects — from complete enterprise systems and custom APIs to scalable SaaS platforms.
+              </p>
+            </div>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 href="/work/wholesale-distribution-erp"
                 className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
@@ -74,6 +82,12 @@ export function StartupSection() {
                 Explore the ERP Case Study
                 <ArrowUpRight size={14} />
               </Link>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 text-sm font-medium text-text-muted hover:text-text-primary transition-colors"
+              >
+                Work with us →
+              </a>
             </div>
           </div>
 

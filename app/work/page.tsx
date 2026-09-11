@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/Icons';
 import { projects } from '@/data/projects';
@@ -51,6 +52,19 @@ export default function WorkPage() {
                 <span className="font-display text-4xl font-bold text-text-primary/10 shrink-0 w-16">
                   0{i + 1}
                 </span>
+
+                {/* Snapshot Thumbnail */}
+                {project.image && (
+                  <div className="relative w-28 h-20 rounded-xl overflow-hidden border border-border-subtle bg-elevated shrink-0 hidden sm:block">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} thumbnail`}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      sizes="112px"
+                    />
+                  </div>
+                )}
 
                 {/* Info */}
                 <div className="flex-1 min-w-0 space-y-2">
