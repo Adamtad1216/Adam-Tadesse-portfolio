@@ -6,7 +6,6 @@ import { GithubIcon } from '@/components/ui/Icons';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { fadeUp, staggerContainer } from '@/lib/animations';
-import { siteConfig } from '@/data/site';
 
 interface LabRepo {
   name: string;
