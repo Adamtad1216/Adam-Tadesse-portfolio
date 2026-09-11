@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   email: 'adamtadesse9@gmail.com',
   profileImage: '/images/adam.jpg',
   logo: '/images/logo.png',
-  cvPath: null, // Add '/Adam-Tadesse-CV.pdf' when ready
+  cvPath: '/Adam-Tadesse-CV.pdf',
   education: {
     institution: 'Arba Minch University',
     degree: "Bachelor's Degree",

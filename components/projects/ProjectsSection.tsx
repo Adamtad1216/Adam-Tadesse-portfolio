@@ -39,6 +39,12 @@ function FlagshipProject({ project }: { project: Project }) {
                     Live
                   </span>
                 )}
+                {project.status === 'in-progress' && (
+                  <span className="flex items-center gap-1.5 text-xs text-amber-400 font-mono">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    Launching Soon
+                  </span>
+                )}
               </div>
 
               <h3 className="font-display text-3xl lg:text-4xl font-bold text-text-primary group-hover:text-accent transition-colors duration-300">
@@ -185,10 +191,24 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <div className="space-y-3">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <span className="text-accent font-mono text-xs tracking-wider uppercase">
-                    {project.category}
-                  </span>
-                  <h3 className="font-display text-xl font-bold text-text-primary mt-1 group-hover:text-accent transition-colors duration-300">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-accent font-mono text-xs tracking-wider uppercase">
+                      {project.category}
+                    </span>
+                    {project.status === 'in-progress' && (
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono text-amber-400 bg-amber-400/10 border border-amber-400/20">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                        Launching Soon
+                      </span>
+                    )}
+                    {project.status === 'live' && (
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono text-success bg-success/10 border border-success/20">
+                        <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+                        Live
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-display text-xl font-bold text-text-primary group-hover:text-accent transition-colors duration-300">
                     {project.title}
                   </h3>
                 </div>

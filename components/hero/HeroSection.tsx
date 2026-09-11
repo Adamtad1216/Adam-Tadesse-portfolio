@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, FileDown } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
 import { siteConfig } from '@/data/site';
 import { SystemDiagram } from './SystemDiagram';
@@ -88,7 +88,7 @@ export function HeroSection() {
             >
               <a
                 href="#work"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-text-inverse font-medium rounded-xl hover:bg-accent/90 transition-all duration-300 text-sm"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-accent text-text-inverse font-medium rounded-xl hover:bg-accent/90 transition-all duration-300 text-sm"
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
@@ -100,9 +100,19 @@ export function HeroSection() {
                   className="group-hover:translate-y-0.5 transition-transform duration-300"
                 />
               </a>
+              {siteConfig.cvPath && (
+                <a
+                  href={siteConfig.cvPath}
+                  download="Adam-Tadesse-CV.pdf"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-border text-text-primary font-medium rounded-xl hover:border-accent hover:text-accent transition-all duration-300 text-sm group"
+                >
+                  <FileDown size={16} className="text-accent group-hover:scale-110 transition-transform duration-200" />
+                  Resume / CV
+                </a>
+              )}
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-text-primary font-medium rounded-xl hover:border-accent/40 hover:text-accent transition-all duration-300 text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3.5 border border-border text-text-primary font-medium rounded-xl hover:border-accent/40 hover:text-accent transition-all duration-300 text-sm"
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });

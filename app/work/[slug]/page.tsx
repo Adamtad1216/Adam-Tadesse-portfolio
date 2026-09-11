@@ -64,6 +64,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 Live
               </span>
             )}
+            {project.status === 'in-progress' && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono text-amber-400 bg-amber-400/10 border border-amber-400/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                Launching Soon / Final Testing
+              </span>
+            )}
             {project.year && (
               <span className="text-text-muted font-mono text-xs">
                 {project.year}

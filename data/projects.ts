@@ -5,11 +5,21 @@ export const projects: Project[] = [
     slug: 'urbansight',
     title: 'UrbanSight',
     category: 'fullstack',
-    shortDescription: 'Smart City Web Dashboard',
+    shortDescription: 'Geospatial Risk Prediction & Smart City Utility Dashboard',
     description:
-      'A smart city web dashboard developed for Arba Minch Water Supply and Sewerage Utility. A comprehensive system for managing urban infrastructure operations with AI-powered capabilities.',
+      'A comprehensive smart city web platform developed for Arba Minch Water Supply and Sewerage Utility. Features an advanced geospatial risk prediction engine ("Leakage Analytics / Predictive Insights Engine") that predicts high-risk geographic infrastructure zones using dynamic geohash grids.',
     role: 'Full-Stack Developer (Independent)',
-    stack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'AI/ML Integration'],
+    stack: [
+      'MongoDB',
+      'Express.js',
+      'React',
+      'Node.js',
+      'Geohash Precision 7',
+      'Leaflet GIS',
+      'MAD Anomaly Detection',
+      'Z-score Statistics',
+      'Predictive Analytics',
+    ],
     status: 'live',
     featured: true,
     flagship: true,
@@ -18,40 +28,41 @@ export const projects: Project[] = [
     live: 'https://urban-sight.vercel.app/',
     year: '2024',
     problem:
-      'Urban water supply and sewerage utilities need to manage complex infrastructure, track operational workflows, and make data-driven decisions — but often rely on fragmented, manual processes that limit visibility and responsiveness.',
+      'Urban water utilities face unexpected pipeline ruptures, unmonitored leakages, and rapid network demand shifts. Without automated anomaly detection and spatial risk modeling, utility teams are trapped in reactive firefighting rather than targeting high-risk sectors before service breaks.',
     solution:
-      'UrbanSight is a full-stack smart city dashboard that centralizes operational data, provides geospatial visualization, and integrates AI for reporting and predictive analysis — giving utility operators a single system to monitor, manage, and improve city services.',
+      'UrbanSight centralizes municipal water operations on an interactive GIS map, ingesting citizen issue reports alongside new connection pressure to compute dynamic, geohashed risk scores across city sectors with statistical anomaly detection.',
     engineering:
-      'Built independently as a complete MERN stack application. The architecture handles real-time operational workflows, geospatial mapping for infrastructure visualization, AI-powered report generation, and predictive analytics. The system includes a companion mobile application for field operations.',
+      'Architected independently as a complete MERN stack application with a multi-tiered predictive insights engine. The risk pipeline runs three model iterations: V1 heuristic baseline (percentile-75 thresholding), V2 statistical rolling-window analysis (Z-score anomaly detection), and V3 production-grade Median Absolute Deviation (MAD) anomaly detection with geohash precision-7 spatial neighbor smoothing (~150m × 150m cells). Assets and telemetry are tracked via branch connection codes, customer IDs, and reading zones.',
     features: [
-      'Smart city operational dashboard',
-      'AI-powered report generation',
-      'AI-based prediction capabilities',
-      'Geospatial maps and infrastructure visualization',
-      'Operational workflow management',
-      'Mobile application for field operations',
-      'Full-stack MERN architecture',
+      'Geospatial Risk Prediction Engine ("Leakage Analytics")',
+      'Multi-model analytics pipeline (V1 Heuristic, V2 Z-score, V3 MAD Anomaly Detection)',
+      'Dynamic Geohash Precision 7 sector gridding (~150m × 150m cells)',
+      'Spatial neighbor smoothing across adjacent geohash cells',
+      'Citizen IssueReport & NewConnectionRequest multi-source telemetry',
+      'Asset tracking by waterConnectionCode, customerCode & readingZone',
+      'Interactive Leaflet GIS visualization with sector risk heat-levels',
+      'Operational work-order dispatch & field reporting workflow',
     ],
     sections: [
       {
-        title: 'The Problem',
+        title: 'The Problem & Context',
         content:
-          'Urban utilities manage thousands of infrastructure assets across a city. Without centralized visibility, operational decisions are reactive rather than proactive — leading to inefficiency, delayed maintenance, and poor resource allocation.',
+          'Managing municipal water infrastructure across expanding urban areas is plagued by silent leakages and uneven infrastructure stress. Arba Minch Water Supply and Sewerage Utility needed an objective, data-driven way to locate vulnerable sectors before pipe bursts cause catastrophic supply disruptions and financial loss.',
       },
       {
-        title: 'The System',
+        title: 'The Predictive Engine Architecture',
         content:
-          'UrbanSight provides a unified dashboard where operators can visualize infrastructure on maps, track work orders through defined workflows, and access real-time operational data — replacing fragmented manual processes with a single source of truth.',
+          'Branded as "Leakage Analytics" / "Predictive Insights Engine" in the UI (frontend/src/pages/LeakagePrediction.tsx), the AI is a dedicated geospatial risk prediction engine that computes risk scores and flags statistical spikes across dynamic geohash grid sectors. (It is specifically focused on geospatial infrastructure risk and does not perform water consumption forecasting or automated narrative reports).',
       },
       {
-        title: 'The Intelligence',
+        title: 'Three-Tier Model Evolution',
         content:
-          'AI integration enables automated report generation from operational data and predictive analysis to anticipate infrastructure needs before they become critical — shifting operations from reactive to proactive.',
+          'The analytics pipeline runs three distinct model versions: V1 (analyticsService.js) classifies zones as red/yellow/green using percentile-75 thresholds and 7-day trend comparisons; V2 (analyticsV2Service.js) introduces Z-score anomaly detection, rolling window comparisons, confidence scoring, and optional logistic regression; V3 (analyticsV3Service.js) delivers production-grade Median Absolute Deviation (MAD) anomaly detection, rolling 7d/14d volatility metrics, and spatial neighbor smoothing across adjacent geohash cells.',
       },
       {
-        title: 'The Engineering',
+        title: 'Dynamic Zone Gridding & Asset Telemetry',
         content:
-          'The entire system was independently architected and built as a full MERN stack application — from database schema design through API architecture to the frontend dashboard and companion mobile app. Every layer was handled by a single developer.',
+          'Tracked sectors are dynamically generated without arbitrary limits using Geohash precision 7 (~150m × 150m cells). Any cell with issue or connection activity in the lookback window is dynamically evaluated. Data sources combine citizen-reported leaks/outages (IssueReport model) and infrastructure demand requests (NewConnectionRequest model), binding directly to branch assets (waterConnectionCode, customerCode, readingZone).',
       },
     ],
   },
@@ -59,11 +70,20 @@ export const projects: Project[] = [
     slug: 'accessible-exam-system',
     title: 'Ethiopian National Accessible Exam System',
     category: 'fullstack',
-    shortDescription: 'Accessibility-First Examination Platform',
+    shortDescription: 'Dual-Language Audio-Guided Examination Platform',
     description:
-      'A web system designed to improve accessibility for visually impaired students and teachers, facilitating learning and examination workflows through inclusive technology.',
+      'An accessibility-first web examination platform engineered for visually impaired students and teachers, featuring native browser Web Speech API voice synthesis with dual-language support (English & Amharic).',
     role: 'Full-Stack Developer (Independent)',
-    stack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Text-to-Speech'],
+    stack: [
+      'MongoDB',
+      'Express.js',
+      'React',
+      'Node.js',
+      'Web Speech API (TTS)',
+      'SpeechSynthesisUtterance',
+      'Accessibility (A11y / WCAG)',
+      'Keyboard-Only Navigation',
+    ],
     status: 'completed',
     featured: true,
     image: '/images/accessible-exam.png',
@@ -72,33 +92,40 @@ export const projects: Project[] = [
     year: '2024',
     conceptHeadline: 'Technology should not create barriers.',
     problem:
-      'Visually impaired students and teachers in Ethiopia face significant barriers when interacting with digital examination systems. Standard web interfaces assume visual interaction, excluding users who rely on assistive technologies.',
+      'Digital examination portals overwhelmingly depend on visual interaction, dense tables, and pointer-driven workflows. For visually impaired learners and educators in Ethiopia, standard web systems create insurmountable barriers to independent academic assessment.',
     solution:
-      'A purpose-built examination platform with Text-to-Speech integration that enables visually impaired users to navigate, take, and manage exams through audio-driven interfaces — making the examination process genuinely accessible.',
+      'A purpose-built examination platform with built-in client-side voice synthesis, allowing blind learners to listen to questions, navigate test options via audio cues and keyboard shortcuts, and submit exams with total autonomy.',
     engineering:
-      'Built as a full MERN stack application with TTS integration as a first-class feature rather than an afterthought. The system architecture ensures that every workflow — from exam creation to exam-taking to results review — is navigable through audio feedback.',
+      'Architected with native browser Web Speech API (window.speechSynthesis and SpeechSynthesisUtterance) in the client service (frontend/src/services/tts.ts), removing external cloud TTS latency, network failure points, and recurring API costs. Features voice selection by language (English and Amharic), customizable speech rate and voice pitch, accessible keyboard focus rings, and high-contrast WCAG-aligned UI.',
     features: [
-      'Text-to-Speech integration for visually impaired users',
-      'Accessible examination workflows',
-      'Teacher and student interfaces',
-      'Audio-driven navigation system',
-      'Full-stack MERN architecture',
+      'Native browser Web Speech API TTS (zero third-party API dependencies)',
+      'Dual-language voice synthesis support (English & Amharic)',
+      'Customizable speech rate, pitch, and voice profile selection',
+      'Audio-guided exam workflows (question readback, option recitation)',
+      'Accessible keyboard-driven navigation with explicit focus states',
+      'Role-based interfaces for educators to configure audio exams',
+      'High-contrast, screen-reader friendly interface architecture',
     ],
     sections: [
       {
-        title: 'The Problem',
+        title: 'The Problem & Accessibility Gap',
         content:
-          'Digital examination systems typically assume sighted users. For visually impaired students and teachers, this creates exclusion from educational processes that are increasingly moving online.',
+          'Standard digital assessment tools assume sighted students and teachers. Visually impaired students frequently must rely on human readers or third-party screen readers that stumble over examination formats, mathematical symbols, and localized languages.',
       },
       {
-        title: 'The Approach',
+        title: 'Client-Side TTS Implementation',
         content:
-          'Rather than adding accessibility as a layer on top of a conventional system, the platform was designed from the ground up with TTS integration and audio-driven workflows as core architectural decisions.',
+          'Implemented directly in frontend/src/services/tts.ts utilizing window.speechSynthesis and SpeechSynthesisUtterance. This guarantees instant auditory feedback without external cloud dependencies or bandwidth lag, and gives users full control over speech rate, volume, and voice pitch.',
       },
       {
-        title: 'The Impact',
+        title: 'Bilingual Voice Synthesis',
         content:
-          'The system enables visually impaired users to independently navigate examination workflows — creating, taking, and reviewing exams through audio feedback without requiring sighted assistance.',
+          'Integrated language-aware voice filtering to support both English and Amharic speech engines available in modern browsers, ensuring Ethiopian students can navigate localized examination content naturally.',
+      },
+      {
+        title: 'Inclusive UX & Audio Workflows',
+        content:
+          'The interface was conceived with an accessibility-first mindset — featuring strict keyboard focus trapping, high-contrast visual tokens, and voice-assisted confirmation modals so students can verify question selections before final submission.',
       },
     ],
   },
@@ -110,7 +137,7 @@ export const projects: Project[] = [
     description:
       'A visually experimental travel project focused heavily on animation, interaction design, and creating an immersive web experience that pushes creative frontend boundaries.',
     role: 'Frontend Developer',
-    stack: ['HTML', 'CSS', 'JavaScript', 'Animation'],
+    stack: ['HTML5', 'CSS3 / Keyframes', 'JavaScript', 'Motion Design', 'Canvas'],
     status: 'completed',
     featured: true,
     image: '/images/galaxy-travel.png',
@@ -121,10 +148,10 @@ export const projects: Project[] = [
     solution:
       'A frontend-only project that uses creative animation, visual layering, and interaction design to create an immersive experience — demonstrating that compelling web experiences come from thoughtful motion design, not just content.',
     features: [
-      'Rich animation sequences',
-      'Immersive visual storytelling',
-      'Creative interaction design',
-      'Experimental frontend techniques',
+      'Rich animation sequences and parallax transitions',
+      'Immersive visual storytelling layout',
+      'Creative interaction design and micro-interactions',
+      'Experimental CSS and JavaScript-driven motion techniques',
     ],
     sections: [
       {
@@ -143,27 +170,54 @@ export const projects: Project[] = [
     slug: 'wholesale-distribution-erp',
     title: 'Wholesale Distribution System ERP',
     category: 'systems',
-    shortDescription: 'Enterprise Resource Planning System',
+    shortDescription: '18-Module Enterprise Distribution & Supply Chain ERP',
     description:
-      'A comprehensive ERP system for wholesale distribution management, built as part of Clone Technologies — a three-founder startup focused on building business software solutions.',
+      'An enterprise-grade wholesale distribution ERP engineered by Clone Technologies. Unifies multi-warehouse inventory, procurement, sales orders, fleet logistics, dynamic pricing, and accounting across 18 integrated modules with PostgreSQL and Prisma ORM.',
     role: 'Co-Founder & Full-Stack Developer',
-    stack: [], // Technologies to be specified later
-    status: 'completed',
+    stack: [
+      'React 19',
+      'Vite',
+      'Tailwind CSS',
+      'Redux Toolkit',
+      'TanStack React Query',
+      'TanStack Table',
+      'React Hook Form',
+      'Zod',
+      'React Router v7',
+      'Recharts',
+      'Leaflet',
+      'Node.js',
+      'Express.js v5',
+      'PostgreSQL',
+      'Prisma ORM',
+      'JWT & Bcrypt',
+      'Multer & Cloudinary',
+      'Nodemailer',
+      'Pino Logger',
+      'Swagger / OpenAPI',
+      'Vitest & Supertest',
+    ],
+    status: 'in-progress',
     featured: true,
     image: '/images/wholesale-erp.png',
-    // github and live URLs to be added when available
     year: '2024',
     problem:
-      'Wholesale distribution businesses manage complex workflows across inventory, orders, suppliers, customers, and logistics. Without integrated systems, these operations become fragmented and error-prone.',
+      'Wholesale distribution enterprises struggle with fragmented operations: inventory stock-outs across disparate branches, manual purchase order errors, complex tiered B2B pricing, and blind dispatch logistics that cause delayed deliveries and revenue leakage.',
     solution:
-      'A full ERP system designed to unify wholesale distribution workflows into a single platform — handling the complexity of business operations that distribution companies face daily.',
+      'A high-performance 18-module ERP platform built on Express v5, PostgreSQL, and Prisma ORM that connects purchasing, inventory reservations, dynamic customer credit lines, fleet dispatching, and executive analytics into a real-time system.',
     engineering:
-      'Built collaboratively within Clone Technologies, a three-founder startup where all founders contributed as full-stack developers. The system demonstrates large-scale application architecture, business workflow modeling, and the ability to work effectively within a technical team.',
+      'Architected collaboratively within Clone Technologies by three equal co-founders. The frontend leverages React 19, Vite, Redux Toolkit, TanStack React Query & Table, and React Router v7. The backend runs Express.js v5 with PostgreSQL and Prisma ORM, implementing Zod schema validation, Leaflet for fleet logistics, Recharts for executive analytics, Pino structured logging, Swagger/OpenAPI documentation, and Vitest/Supertest test suites.',
     features: [
-      'Enterprise resource planning',
-      'Wholesale distribution management',
-      'Business workflow automation',
-      'Collaborative startup development',
+      '18 Integrated Enterprise Modules for end-to-end wholesale operations',
+      'Granular Role-Based Access Control (RBAC) & authentication (JWT/Bcrypt)',
+      'Multi-branch and multi-warehouse real-time inventory management',
+      'Full procurement cycle: Purchase Orders, Goods Receipt Notes (GRN) & Invoicing',
+      'Stock fulfillment engine with inventory reservation and picking workflows',
+      'Dynamic B2B tiered pricing, quantity breaks, and customer credit lines',
+      'Delivery & logistics module with fleet tracking and route planning (Leaflet)',
+      'AI intelligence module for predictive demand and restocking insights',
+      'Executive KPI reporting & analytics dashboards with Recharts',
+      'Automated PDF document generation, audit activity logging & Pino telemetry',
     ],
     team: [
       {
@@ -181,14 +235,24 @@ export const projects: Project[] = [
     ],
     sections: [
       {
-        title: 'The Challenge',
+        title: '18 Core Enterprise Modules',
         content:
-          'Building enterprise-grade software requires understanding complex business domains, designing for scale, and making architectural decisions that support evolving requirements — all while shipping working software.',
+          'The system consists of 18 integrated core modules: Identity & Access Management (RBAC), Supplier Management, Procurement (Purchase Orders & Receipts), Finance (Invoicing, Payments & Credits), Product Catalog, Branches & Warehouses, Inventory Management (Stock Levels & Adjustments), Stock Fulfillment & Reservations, Customer Management, Sales Orders & Quotations, Dynamic Pricing & Discounts, Delivery & Logistics (Fleet & Dispatch), Sales Returns & Refunds, Notifications, Audit & Activity Logging, Reporting & Analytics Dashboards, AI Intelligence & Recommendations, and Document Management.',
       },
       {
-        title: 'The Team',
+        title: 'Core Functional Areas',
         content:
-          'Clone Technologies is a startup founded by three software engineering graduates who share equal founding status. The team combines individual technical strengths with collaborative problem-solving to build production business software.',
+          'Identity & Access Management provides RBAC user permissions. Supplier Management handles vendor profiles, contacts, and payment terms. Procurement automates purchase orders, GRN, and supplier invoices. Finance & Invoicing tracks sales invoicing, payments, credit limits, and allocations. Product Catalog governs categories, brands, units, and barcode tracking. Branches & Warehouses provides multi-facility setup. Inventory Management & Stock Fulfillment ensure real-time stock tracking, transfers, reservations, and order picking. Customer Management powers B2B/B2C profiles and credit lines. Sales Orders, Pricing & Discounts handle order approvals, tiered pricing, and quantity breaks. Delivery & Logistics manages vehicle fleet routing and dispatch. Reporting, AI & Auditing provide executive KPIs, predictive restocking, and complete activity trails.',
+      },
+      {
+        title: 'Modern Enterprise Tech Stack',
+        content:
+          'Built with modern technologies: React 19, Vite, Tailwind CSS, Redux Toolkit, TanStack React Query, TanStack Table, React Hook Form, Zod, React Router v7, Recharts, Leaflet, Node.js, Express.js v5, PostgreSQL, Prisma ORM, JWT, Bcrypt, Multer, Cloudinary, Nodemailer, Pino, Swagger/OpenAPI, Vitest, and Supertest.',
+      },
+      {
+        title: 'Startup Engineering by Clone Technologies',
+        content:
+          'Engineered as equal co-founders at Clone Technologies. The system demonstrates enterprise-scale domain modeling, strict relational database design with PostgreSQL & Prisma, comprehensive testing pipelines, and readiness for production deployment.',
       },
     ],
   },

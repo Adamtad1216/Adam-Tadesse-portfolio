@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileDown } from 'lucide-react';
 import { navItems, siteConfig } from '@/data/site';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { cn } from '@/lib/utils';
@@ -137,6 +137,17 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <ThemeToggle />
 
+            {siteConfig.cvPath && (
+              <a
+                href={siteConfig.cvPath}
+                download="Adam-Tadesse-CV.pdf"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium border border-border text-text-secondary rounded-lg hover:border-accent hover:text-accent transition-colors duration-300"
+              >
+                <FileDown size={14} />
+                <span>CV</span>
+              </a>
+            )}
+
             <a
               href="#contact"
               className="hidden lg:inline-flex items-center px-5 py-2 text-sm font-medium bg-accent text-text-inverse rounded-lg hover:bg-accent/90 transition-colors duration-300"
@@ -206,6 +217,21 @@ export function Navbar() {
               >
                 Get in touch
               </motion.a>
+
+              {siteConfig.cvPath && (
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ delay: (navItems.length + 0.5) * 0.08, duration: 0.4 }}
+                  href={siteConfig.cvPath}
+                  download="Adam-Tadesse-CV.pdf"
+                  className="mt-2 inline-flex items-center gap-2 px-8 py-3 border border-border text-text-primary rounded-xl text-lg font-medium hover:border-accent hover:text-accent transition-colors"
+                >
+                  <FileDown size={18} />
+                  Download CV
+                </motion.a>
+              )}
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
