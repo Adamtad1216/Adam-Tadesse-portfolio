@@ -70,6 +70,7 @@ export function AboutSection() {
                   src={siteConfig.profileImage}
                   alt={`${siteConfig.name} profile`}
                   fill
+                  sizes="192px"
                   className="object-cover"
                   priority={false}
                 />
